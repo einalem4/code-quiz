@@ -1,5 +1,6 @@
 
 var questionsEl = document.querySelector("#questions");
+var landingPageEl = document.querySelector ("#begin-quiz");
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz-questions")
 var answer1El = document.querySelector("#answer1");
@@ -34,13 +35,14 @@ var quizQuestions = [{
 //start the quiz
 function startQuiz() {
     count = 0;
-
     displayQuestion(count);
+
+    document.getElementById('begin-quiz').remove();
 };
 
 
 function displayQuestion() {
-    for (var i= 0; i<quizQuestions.length; i++) {
+    for (var i = 0; i < quizQuestions.length; i++) {
         questionsEl.textContent = quizQuestions[i].title;
         answer1El.textContent = quizQuestions[i].choices[0];
         answer2El.textContent = quizQuestions[i].choices[1];
@@ -50,5 +52,5 @@ function displayQuestion() {
     console.log(displayQuestion);
 };
 
-
 startEl.addEventListener("click", startQuiz);
+
