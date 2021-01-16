@@ -1,5 +1,15 @@
 
-var questions = [{
+var questionsEl = document.querySelector("#questions");
+var startEl = document.querySelector("#start");
+var quizEl = document.querySelector("#quiz-questions")
+var answer1El = document.querySelector("#answer1");
+var answer2El = document.querySelector("#answer2");
+var answer3El = document.querySelector("#answer3");
+var answer4El = document.querySelector("#answer4");
+
+
+//set of quiz questions
+var quizQuestions = [{
     title: "Which of the following type of variable is visible everywhere in your JavaScript code?",
     choices: ["Global variable", "Local variable", "All of the above", "None of the above"],
     answer: "Global Variable"
@@ -21,5 +31,24 @@ var questions = [{
 },
 ]
 
+//start the quiz
+function startQuiz() {
+    count = 0;
 
-//starts the quiz
+    displayQuestion(count);
+};
+
+
+function displayQuestion() {
+    for (var i= 0; i<quizQuestions.length; i++) {
+        questionsEl.textContent = quizQuestions[i].title;
+        answer1El.textContent = quizQuestions[i].choices[0];
+        answer2El.textContent = quizQuestions[i].choices[1];
+        answer3El.textContent = quizQuestions[i].choices[2];
+        answer4El.textContent = quizQuestions[i].choices[3];
+    }
+    console.log(displayQuestion);
+};
+
+
+startEl.addEventListener("click", startQuiz);

@@ -14,7 +14,7 @@
         <div class="score">
             <button id="high-score">View High Scores</button>
         </div>
-        <div class="score">
+        <div class="time">
             <h4>Time: <span id="timer">0</span></h4>
         </div>
     </nav>
@@ -23,13 +23,19 @@
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers
             will penalize your score/time by 10 seconds!</p>
-        <button id="start" onclick="start()">Start Quiz</button>
+        <button id="start">Start Quiz</button>
 
     </div>
 
-    <div id="quiz-questions">
-            <div id="questions"></div>
-        </div>
+    <section id="quiz-questions">
+        <div id="questions"></div>
+        <ul>
+            <li><button id="answer1" value="0"></button></li>
+            <li><button id="answer2" value="1"></button></li>
+            <li><button id="answer3" value="2"></button></li>
+            <li><button id="answer4" value="3"></button></li>
+        </ul>
+    </section>
 
     </div>
 
