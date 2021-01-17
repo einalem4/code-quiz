@@ -12,7 +12,7 @@ var rightWrongEl = document.querySelector("#right-wrong");
 var endGame = document.querySelector("#end-game")
 var viewScore = document.querySelector("#high-score")
 var timer = document.querySelector("#timer");
-var timeLeft = 0;
+var timeLeft = 50;
 var currentQuestionIndex = 0;
 
 
@@ -45,11 +45,22 @@ listItem.style.display = "none";
 //high score when landing on the main page
 endGame.style.display = "none";
 
+function setTime() {
+    let timerInterval = setInterval(function () {
+        timeLeft--;
+        timer.textContent = timeLeft;
 
+        if (timeLeft === 0 || currentQuestionIndex === quizQuestions.length) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}
 //start the quiz
 function startQuiz() {
     count = 0;
+    setTime();
     displayQuestion(count);
+
     //shows the li of questions when the button is pressed
     listItem.style.display = "block";
     // removes quiz intro once start button is pressed
