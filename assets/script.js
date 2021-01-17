@@ -50,6 +50,12 @@ function setTime() {
         timeLeft--;
         timer.textContent = timeLeft;
 
+        if (timeLeft < 1) {
+            timer.textContent = 0;
+            highScore();
+            clearInterval(timerInterval);
+        };
+
         if (timeLeft === 0 || currentQuestionIndex === quizQuestions.length) {
             highScore()
             clearInterval(timerInterval);
