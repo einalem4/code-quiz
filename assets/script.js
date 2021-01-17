@@ -9,10 +9,12 @@ var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
 var listItem = document.querySelector("#list-item");
 var rightWrongEl = document.querySelector("#right-wrong");
-var endGame = document.querySelector("#end-game")
-var viewScore = document.querySelector("#high-score")
+var endGame = document.querySelector("#end-game");
+var viewScore = document.querySelector("#high-score");
 var timer = document.querySelector("#timer");
-var timeLeft = 50;
+var clearScore = document.querySelector("clear-score");
+var submitScore = document.querySelector("#submit-score");
+var timeLeft = 40;
 var currentQuestionIndex = 0;
 
 
@@ -115,6 +117,10 @@ function checkAnswer(choiceIndex) {
     }
     else {
         rightWrongEl.innerHTML = "Wrong! :(";
+        timeLeft -= 10;
+        if (timeLeft <= 0) {
+            timeLeft = 0;
+        }
     }
 
     if (currentQuestionIndex === 3) {
