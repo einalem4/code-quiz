@@ -15,7 +15,6 @@ var timer = document.querySelector("#timer");
 var clearScore = document.querySelector("clear-score");
 var submitScore = document.querySelector("#submit-score");
 var initials = document.querySelector("#initials")
-var score = document.querySelector("#score");
 var timeLeft = 40;
 var currentQuestionIndex = 0;
 var score = 0
@@ -143,6 +142,7 @@ function checkAnswer(choiceIndex) {
 function highScore() {
     console.log(endGame)
 
+    document.getElementById("score").innerHTML="Your final score is: " + timeLeft;
     endGame.style.display = "block";
 
     // removed quiz intro once star button is pressed
@@ -151,6 +151,8 @@ function highScore() {
     quizEl.style.display = "none";
 
 };
+
+
 
 
 
