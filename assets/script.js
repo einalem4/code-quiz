@@ -14,8 +14,11 @@ var viewScore = document.querySelector("#high-score");
 var timer = document.querySelector("#timer");
 var clearScore = document.querySelector("clear-score");
 var submitScore = document.querySelector("#submit-score");
+var initials = document.querySelector("#initials")
+var score = document.querySelector("#score");
 var timeLeft = 40;
 var currentQuestionIndex = 0;
+var score = 0
 
 
 //set of quiz questions
@@ -64,11 +67,13 @@ function setTime() {
         }
     }, 1000);
 };
+
 //start the quiz
 function startQuiz() {
     count = 0;
     setTime();
     displayQuestion(count);
+    score = 0
 
     //shows the li of questions when the button is pressed
     listItem.style.display = "block";
@@ -125,12 +130,15 @@ function checkAnswer(choiceIndex) {
 
     if (currentQuestionIndex === 3) {
         highScore();
+        currentQuestionIndex++
     }
     else {
         currentQuestionIndex++
         displayQuestion();
     }
 };
+
+
 
 function highScore() {
     console.log(endGame)
@@ -142,7 +150,8 @@ function highScore() {
     // removed quiz intro once star button is pressed
     quizEl.style.display = "none";
 
-}
+};
+
 
 
 //starts quiz
@@ -150,3 +159,4 @@ startEl.addEventListener("click", startQuiz);
 
 //show highscore
 viewScore.addEventListener("click", highScore);
+
