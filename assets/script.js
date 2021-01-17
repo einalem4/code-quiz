@@ -46,7 +46,7 @@ listItem.style.display = "none";
 endGame.style.display = "none";
 
 function setTime() {
-    let timerInterval = setInterval(function () {
+    var timerInterval = setInterval(function () {
         timeLeft--;
         timer.textContent = timeLeft;
 
@@ -54,7 +54,7 @@ function setTime() {
             clearInterval(timerInterval);
         }
     }, 1000);
-}
+};
 //start the quiz
 function startQuiz() {
     count = 0;
