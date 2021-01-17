@@ -15,16 +15,19 @@
             <button id="high-score">View High Scores</button>
         </div>
         <div class="time">
-            <h4>Time: <span id="timer">0</span></h4>
+            <h4>Time <span id="timer"></span></h4>
         </div>
     </nav>
 </header>
 
     <main id="begin-quiz">
         <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers
+        <br/>
+        <p>Try to answer the following code-related questions within the time limit. Incorrect answers
             will penalize your score/time by 10 seconds!</p>
+            <br/>
         <button id="start" onclick="startQuiz()">Start Quiz</button>
+        <br/>
 
     </main>
 
@@ -35,19 +38,21 @@
             <li><button id="answer2" value="1"></button></li>
             <li><button id="answer3" value="2"></button></li>
             <li><button id="answer4" value="3"></button></li>
+            <div id="right-wrong"></div>
         </ul>
-        <div id="right-wrong"></div>
     </section>
 
     <section id="end-game">
             <p><span id="score"></span></p>
             <p>Enter initials: <span><input placeholder="initials" id="initials" /></span>
+                <div id="show-score"><p></p></div>
                 <button id="submit-score">Submit</button>
-                <button id="clear-score">Clear</button>
+                <!-- <button id="clear-score">Clear</button> -->
             </p>
-
-            <div id="scores-list"></div>
     </section>
+
+    <section id="scores-list"></div>
+
 
     <script src="./assets/script.js"></script>
 </body>

@@ -12,13 +12,36 @@ body {
 }
 
 main {
-    flex: 1;
     display: flex;
-    flex-wrap: wrap;
+    padding: 5px;
+    height: 10px;
+    margin: 95px;
     justify-content: center;
-    margin: 25px;
-    width: 95%;
+    flex-wrap: wrap;
+}
+
+
+h1 {
+    display: flex;
+    justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
+}
+
+#questions {
+    display: flex;
+    padding: 5px;
+    height: 10px;
+    margin: 95px;
+    justify-content: center;
+}
+
+#list-item li {
+    display: flex;
+    justify-content: center;    
+    width: 90%;
+    list-style-type: none;
+    padding: 0;
 }
 
 button {
@@ -34,6 +57,48 @@ button {
     text-decoration: none;
     font-size: 16px;
 }
+
+#end-game {
+    display: flex;
+    padding: 5px;
+    height: 10px;
+    margin: 95px;
+    justify-content: center;
+}
+
+/* #score{
+    display: flex;
+    padding: 5px;
+    height: 10px;
+    margin: 95px;
+    justify-content: center;
+} */
+
+#initials{
+    display: flex;
+    
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+}
+
+#high-score {
+    background: transparent;
+    color: #338DFF;
+    border: none;
+}
+
+
  
 
 

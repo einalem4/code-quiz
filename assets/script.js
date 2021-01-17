@@ -14,10 +14,11 @@ var viewScore = document.querySelector("#high-score");
 var timer = document.querySelector("#timer");
 var clearScore = document.querySelector("clear-score");
 var submitScore = document.querySelector("#submit-score");
-var initials = document.querySelector("#initials")
-var timeLeft = 40;
+var initials = document.querySelector("#initials");
+var showScore = document.querySelector("show-score");
+var timeLeft = 30;
 var currentQuestionIndex = 0;
-var score = 0
+var score = 0;
 
 
 //set of quiz questions
@@ -72,7 +73,7 @@ function startQuiz() {
     count = 0;
     setTime();
     displayQuestion(count);
-    score = 0
+    score = 0;
 
     //shows the li of questions when the button is pressed
     listItem.style.display = "block";
@@ -122,7 +123,7 @@ function checkAnswer(choiceIndex) {
     else {
         rightWrongEl.innerHTML = "Wrong! :(";
         timeLeft -= 10;
-        if (timeLeft <= 0) {
+        if (timeLeft <=0) {
             timeLeft = 0;
         }
     }
@@ -135,6 +136,7 @@ function checkAnswer(choiceIndex) {
         currentQuestionIndex++
         displayQuestion();
     }
+
 };
 
 
@@ -142,7 +144,7 @@ function checkAnswer(choiceIndex) {
 function highScore() {
     console.log(endGame)
 
-    document.getElementById("score").innerHTML="Your final score is: " + timeLeft;
+    document.getElementById("score").innerHTML = "Your final score is: " + timeLeft;
     endGame.style.display = "block";
 
     // removed quiz intro once star button is pressed
@@ -152,7 +154,12 @@ function highScore() {
 
 };
 
-
+function storeScore() {
+    var initials = document.getElementById('initials').value;
+    console.log('initials', initials);
+    var initialsAndScore = initials + timeLeft;
+    showScore.textContent = initialsAndScore
+}
 
 
 
@@ -161,4 +168,8 @@ startEl.addEventListener("click", startQuiz);
 
 //show highscore
 viewScore.addEventListener("click", highScore);
+
+//submit score
+submitScore.addEventListener("click", storeScore);
+
 
