@@ -9,6 +9,8 @@ var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
 var listItem = document.querySelector("#list-item");
 var rightWrongEl = document.querySelector("#right-wrong");
+var endGame = document.querySelector("#end-game")
+var viewScore = document.querySelector("#high-score")
 var countDown = 78;
 var currentQuestionIndex = 0;
 
@@ -39,6 +41,9 @@ var quizQuestions = [{
 //hides list items when landing on the main page
 document.getElementById('list-item').style.display = "none";
 
+//high score when landing on the main page
+document.getElementById('end-game').style.display = "none";
+
 //start the quiz
 function startQuiz() {
     count = 0;
@@ -55,7 +60,7 @@ function startQuiz() {
 //displays questions and choices
 function displayQuestion() {
 
-    questionsEl.textContent = quizQuestions[currentQuestionIndex].title 
+    questionsEl.textContent = quizQuestions[currentQuestionIndex].title
     answer1El.textContent = quizQuestions[currentQuestionIndex].choices[0];
     answer2El.textContent = quizQuestions[currentQuestionIndex].choices[1];
     answer3El.textContent = quizQuestions[currentQuestionIndex].choices[2];
@@ -64,24 +69,59 @@ function displayQuestion() {
 
 answer1El.addEventListener('click', function () {
     console.log(answer1El)
+    checkAnswer(0);
+});
+
+answer2El.addEventListener('click', function () {
+    console.log(answer2El)
+    checkAnswer(1);
+});
+
+answer3El.addEventListener('click', function () {
+    console.log(answer3El)
+    checkAnswer(2);
+});
+
+answer4El.addEventListener('click', function () {
+    console.log(answer4El)
+    checkAnswer(3);
+});
+
+function checkAnswer(choiceIndex) {
+    console.log(currentQuestionIndex);
     var currentQuestion = quizQuestions[currentQuestionIndex];
+    var userAnswer = currentQuestion.choices[choiceIndex];
     var correctAnswer = quizQuestions[currentQuestionIndex].answer
-    var userAnswer = currentQuestion.choices[0];
     if (userAnswer === correctAnswer) {
+        rightWrongEl.innerHTML = "Correct!";
         console.log(userAnswer);
+    }
+    else {
+        rightWrongEl.innerHTML = "Wrong! :(";
+    }
+
+    if (currentQuestionIndex === 3) {
+        highScore();
+    }
+    else {
         currentQuestionIndex++
         displayQuestion();
     }
-    else {
-        console.log("Wrong ANSWER DUMMY");
-    }
-});
+};
 
+function highScore() {
+    console.log(endGame)
 
+    document.getElementById('end-game').style.display = "block";
 
+    // removed quiz intro once star button is pressed
+    document.getElementById('begin-quiz').style.display = "none";
+    // removed quiz intro once star button is pressed
+    document.getElementById('quiz-questions').style.display = "none";
 
+}
 
 
 //starts quiz
 startEl.addEventListener("click", startQuiz);
-
+viewScore.addEventListener("click", highScore);
