@@ -11,7 +11,8 @@ var listItem = document.querySelector("#list-item");
 var rightWrongEl = document.querySelector("#right-wrong");
 var endGame = document.querySelector("#end-game")
 var viewScore = document.querySelector("#high-score")
-var countDown = 78;
+var timer = document.querySelector("#timer");
+var timeLeft = 0;
 var currentQuestionIndex = 0;
 
 
@@ -39,22 +40,20 @@ var quizQuestions = [{
 ]
 
 //hides list items when landing on the main page
-document.getElementById('list-item').style.display = "none";
+listItem.style.display = "none";
 
 //high score when landing on the main page
-document.getElementById('end-game').style.display = "none";
+endGame.style.display = "none";
+
 
 //start the quiz
 function startQuiz() {
     count = 0;
     displayQuestion(count);
     //shows the li of questions when the button is pressed
-    document.getElementById('list-item').style.display = "block";
-
-
-    // removed quiz intro once star button is pressed
-    document.getElementById('begin-quiz').style.display = "none";
-
+    listItem.style.display = "block";
+    // removes quiz intro once start button is pressed
+    landingPageEl.style.display = "none";
 };
 
 //displays questions and choices
@@ -112,16 +111,18 @@ function checkAnswer(choiceIndex) {
 function highScore() {
     console.log(endGame)
 
-    document.getElementById('end-game').style.display = "block";
+    endGame.style.display = "block";
 
     // removed quiz intro once star button is pressed
-    document.getElementById('begin-quiz').style.display = "none";
+    landingPageEl.style.display = "none";
     // removed quiz intro once star button is pressed
-    document.getElementById('quiz-questions').style.display = "none";
+    quizEl.style.display = "none";
 
 }
 
 
 //starts quiz
 startEl.addEventListener("click", startQuiz);
+
+//show highscore
 viewScore.addEventListener("click", highScore);
