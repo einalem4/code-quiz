@@ -78,6 +78,14 @@ button {
     color: #fff;
 }
 
+#previous-score {
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    background-color: #338DFF;
+    color: #fff;
+}
+
 #end-game {
     display: flex;
     padding: 5px;

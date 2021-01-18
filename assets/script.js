@@ -54,7 +54,7 @@ endGame.style.display = "none";
 //hide score list when landing on the main page
 scoreList.style.display = "none";
 
-
+//sets the timer
 function setTime() {
     var timerInterval = setInterval(function () {
         timeLeft--;
@@ -116,6 +116,7 @@ answer4El.addEventListener('click', function () {
     checkAnswer(3);
 });
 
+//checks if the answer is right or wrong
 function checkAnswer(choiceIndex) {
     console.log(currentQuestionIndex);
     var currentQuestion = quizQuestions[currentQuestionIndex];
@@ -144,8 +145,6 @@ function checkAnswer(choiceIndex) {
 
 };
 
-
-
 function highScore() {
     console.log(endGame)
 
@@ -156,31 +155,38 @@ function highScore() {
 
     document.getElementById("score").innerHTML = "Your final score is: " + timeLeft;
     endGame.style.display = "block";
-
-    localStorage.setItem('highScore', 'finalScore');
-
 };
 
-function recordScore(event) {
-    event.preventDefault();
-
+//navigates to the high score list
+function displayHighScore() {
     scoreList.style.display = "block";
     endGame.style.display = "none";
     landingPageEl.style.display = "none";
+}
+
+//saves and records your high score
+function recordScore() {
 
     var initials = document.getElementById('initials').value;
     var initialsAndScore = initials + ":                          " + timeLeft;
     finalScore.innerHTML = initialsAndScore;
 
+    //saves to local storage
     localStorage.setItem('finalScore', initialsAndScore);
+
+    displayHighScore();
 }
 
+//presents previous scores
+var prevFinalScore = localStorage.getItem('finalScore');
+console.log('prevFinalScore', prevFinalScore);
+document.getElementById('previous-score').innerHTML = prevFinalScore;
 
 //starts quiz
 startEl.addEventListener("click", startQuiz);
 
 //show highscore
-viewScore.addEventListener("click", recordScore);
+viewScore.addEventListener("click", displayHighScore);
 
 //submit score
 submitScore.addEventListener("click", recordScore);
