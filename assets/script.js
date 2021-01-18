@@ -56,29 +56,25 @@ scoreList.style.display = "none";
 
 //sets the timer
 function setTime() {
-    var timerInterval = setInterval(function () {
-        timeLeft--;
-        timer.textContent = timeLeft;
 
-        if (timeLeft < 1) {
-            timer.textContent = 0;
+    var timerInterval = setInterval(function () {
+        if (timeLeft === 0 || currentQuestionIndex === quizQuestions.length) {
             highScore();
             clearInterval(timerInterval);
-        };
-
-        if (timeLeft === 0 || currentQuestionIndex === quizQuestions.length) {
-            highScore()
-            clearInterval(timerInterval);
         }
+        else {
+            timeLeft--;
+            timer.textContent = timeLeft;
+        }
+
     }, 1000);
-};
+}
 
 //start the quiz
 function startQuiz() {
     count = 0;
     setTime();
     displayQuestion(count);
-    score = 0;
 
     //shows the li of questions when the button is pressed
     listItem.style.display = "block";
