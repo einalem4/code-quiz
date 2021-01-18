@@ -72,6 +72,7 @@ function setTime() {
 
 //start the quiz
 function startQuiz() {
+    timer.textContent = timeLeft;
     count = 0;
     setTime();
     displayQuestion(count);
