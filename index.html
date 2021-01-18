@@ -9,25 +9,25 @@
 </head>
 
 <body>
-<header>
-    <nav>
-        <div class="score">
-            <button id="high-score">View High Scores</button>
-        </div>
-        <div class="time">
-            <h4>Time <span id="timer"></span></h4>
-        </div>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <div class="score">
+                <button id="high-score" onclick="recordScore()">View High Scores</button>
+            </div>
+            <div class="time">
+                <h4>Time <span id="timer"></span></h4>
+            </div>
+        </nav>
+    </header>
 
     <main id="begin-quiz">
         <h1>Coding Quiz Challenge</h1>
-        <br/>
+        <br />
         <p>Try to answer the following code-related questions within the time limit. Incorrect answers
             will penalize your score/time by 10 seconds!</p>
-            <br/>
+        <br />
         <button id="start" onclick="startQuiz()">Start Quiz</button>
-        <br/>
+        <br />
 
     </main>
 
@@ -43,15 +43,17 @@
     </section>
 
     <section id="end-game">
-            <p><span id="score"></span></p>
-            <p>Enter initials: <span><input placeholder="initials" id="initials" /></span>
-                <div id="show-score"><p></p></div>
-                <button id="submit-score">Submit</button>
-                <!-- <button id="clear-score">Clear</button> -->
-            </p>
+        <h2>Record your score!</h2>
+        <p><span id="score"></span></p>
+        <p>Enter initials: <span><input placeholder="initials" id="initials" /></span>
+            <button id="submit-score">Submit</button>
+            <!-- <button id="clear-score">Clear</button> -->
     </section>
 
-    <section id="scores-list"></div>
+    <section id="scores-list">
+        <h2>Your High Score!</h2>
+        <p id="final-score"><p>
+    </section>
 
 
     <script src="./assets/script.js"></script>

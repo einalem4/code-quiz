@@ -12,13 +12,14 @@ var rightWrongEl = document.querySelector("#right-wrong");
 var endGame = document.querySelector("#end-game");
 var viewScore = document.querySelector("#high-score");
 var timer = document.querySelector("#timer");
-var clearScore = document.querySelector("clear-score");
 var submitScore = document.querySelector("#submit-score");
 var initials = document.querySelector("#initials");
-var showScore = document.querySelector("show-score");
+var scoreList = document.querySelector("#scores-list")
+var finalScore = document.querySelector("#final-score");
+var finalInitials = document.querySelector('#final-initials');
 var timeLeft = 30;
 var currentQuestionIndex = 0;
-var score = 0;
+score = 0;
 
 
 //set of quiz questions
@@ -47,8 +48,12 @@ var quizQuestions = [{
 //hides list items when landing on the main page
 listItem.style.display = "none";
 
-//high score when landing on the main page
+//hide score when landing on the main page
 endGame.style.display = "none";
+
+//hide score list when landing on the main page
+scoreList.style.display = "none";
+
 
 function setTime() {
     var timerInterval = setInterval(function () {
@@ -123,7 +128,7 @@ function checkAnswer(choiceIndex) {
     else {
         rightWrongEl.innerHTML = "Wrong! :(";
         timeLeft -= 10;
-        if (timeLeft <=0) {
+        if (timeLeft <= 0) {
             timeLeft = 0;
         }
     }
@@ -144,21 +149,27 @@ function checkAnswer(choiceIndex) {
 function highScore() {
     console.log(endGame)
 
-    document.getElementById("score").innerHTML = "Your final score is: " + timeLeft;
-    endGame.style.display = "block";
-
     // removed quiz intro once star button is pressed
     landingPageEl.style.display = "none";
     // removed quiz intro once star button is pressed
     quizEl.style.display = "none";
 
+    document.getElementById("score").innerHTML = "Your final score is: " + timeLeft;
+    endGame.style.display = "block";
+
+
+
 };
 
-function storeScore() {
+function recordScore(event) {
+    event.preventDefault();
+
+    scoreList.style.display = "block";
+    endGame.style.display = "none";
+    landingPageEl.style.display = "none";
+
     var initials = document.getElementById('initials').value;
-    console.log('initials', initials);
-    var initialsAndScore = initials + timeLeft;
-    showScore.textContent = initialsAndScore
+    finalScore.innerHTML = initials + ":                          " + timeLeft;
 }
 
 
@@ -167,9 +178,9 @@ function storeScore() {
 startEl.addEventListener("click", startQuiz);
 
 //show highscore
-viewScore.addEventListener("click", highScore);
+viewScore.addEventListener("click", recordScore);
 
 //submit score
-submitScore.addEventListener("click", storeScore);
+submitScore.addEventListener("click", recordScore);
 
 
