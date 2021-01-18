@@ -157,7 +157,7 @@ function highScore() {
     document.getElementById("score").innerHTML = "Your final score is: " + timeLeft;
     endGame.style.display = "block";
 
-
+    localStorage.setItem('highScore', 'finalScore');
 
 };
 
@@ -169,9 +169,11 @@ function recordScore(event) {
     landingPageEl.style.display = "none";
 
     var initials = document.getElementById('initials').value;
-    finalScore.innerHTML = initials + ":                          " + timeLeft;
-}
+    var initialsAndScore = initials + ":                          " + timeLeft;
+    finalScore.innerHTML = initialsAndScore;
 
+    localStorage.setItem('finalScore', initialsAndScore);
+}
 
 
 //starts quiz
