@@ -182,9 +182,6 @@ var prevFinalScore = localStorage.getItem('finalScore');
 console.log('prevFinalScore', prevFinalScore);
 document.getElementById('previous-score').innerHTML = prevFinalScore;
 
-//starts quiz
-startEl.addEventListener("click", startQuiz);
-
 //show highscore
 viewScore.addEventListener("click", displayHighScore);
 
